@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const nodeExternals = require('webpack-node-externals');
 const webpack = require('webpack');
 const dotenv = require('dotenv');
 const path = require('path');
@@ -16,6 +17,12 @@ module.exports = {
   },
 
   mode: 'development',
+
+  target: 'node',                           // use require() & use NodeJs CommonJS style
+  externals: [nodeExternals()],             // in order to ignore all modules in node_modules folder
+  externalsPresets: {
+    node: true                              // in order to ignore built-in modules like path, fs, etc. 
+  },
 
   module: {
     rules: [
