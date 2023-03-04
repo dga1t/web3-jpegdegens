@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const nodeExternals = require('webpack-node-externals');
 const webpack = require('webpack');
 const dotenv = require('dotenv');
 const path = require('path');
@@ -18,12 +17,6 @@ module.exports = {
 
   mode: 'development',
 
-  target: 'node',                           // use require() & use NodeJs CommonJS style
-  externals: [nodeExternals()],             // in order to ignore all modules in node_modules folder
-  externalsPresets: {
-    node: true                              // in order to ignore built-in modules like path, fs, etc. 
-  },
-
   module: {
     rules: [
       {
@@ -31,7 +24,6 @@ module.exports = {
         loader: 'ts-loader',
         exclude: /node_modules/,
       },
-
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
@@ -44,9 +36,7 @@ module.exports = {
       inject: 'body',
     }),
     new webpack.DefinePlugin({
-      'process.env.CONTRACT_ADDRESS': JSON.stringify(
-        process.env.CONTRACT_ADDRESS
-      ),
+      'process.env.CONTRACT_ADDRESS': JSON.stringify(process.env.CONTRACT_ADDRESS),
       'process.env.DEBUG': JSON.stringify(process.env.DEBUG),
     }),
   ],

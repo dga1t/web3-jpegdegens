@@ -1,4 +1,4 @@
-import { ethers } from 'hardhat';
+import { ethers } from 'ethers';
 
 function getEth() {
   // @ts-ignore
@@ -29,7 +29,7 @@ async function run() {
   }
 
   const hello = new ethers.Contract(
-    '0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0',
+    '0x5fbdb2315678afecb367f032d93f642f64180aa3',
     ['function hello() public pure returns (string memory)'],
     new ethers.providers.Web3Provider(getEth())
   );
