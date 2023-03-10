@@ -28,13 +28,31 @@ async function run() {
     throw new Error('Please let me take your money');
   }
 
-  const hello = new ethers.Contract(
-    '0x5fbdb2315678afecb367f032d93f642f64180aa3',
-    ['function hello() public pure returns (string memory)'],
+  const counter = new ethers.Contract(
+    process.env.CONTRACT_ADDRESS,
+    [
+      'function count() public',
+      'function getCounter() public view returns (uint32)',
+    ],
     new ethers.providers.Web3Provider(getEth())
   );
 
-  document.body.innerHTML = await hello.hello();
+  const el = document.createElement('div');
+
+  async function setCounter() {
+    el.innerHTML = await counter.getCounter();
+  }
+  setCounter();
+
+  const button = document.createElement('button');
+  button.innerText = 'increment';
+  button.onclick = async function() {
+    await counter.count();
+    // setCounter();
+  }
+
+  document.body.appendChild(el);
+  document.body.appendChild(button);
 }
 
 run();

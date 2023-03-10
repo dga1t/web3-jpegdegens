@@ -37,8 +37,8 @@
       ]
     },
     "/run/media/dp/SPACE/coding/projects/web3/jpegdegens/contracts/Counter.sol": {
-      "lastModificationDate": 1678289076319,
-      "contentHash": "7a17b4d2e44dea459f7407389b7afb62",
+      "lastModificationDate": 1678473676308,
+      "contentHash": "0ab8508945b6a008c9c435938b54ee14",
       "sourceName": "contracts/Counter.sol",
       "solcConfig": {
         "version": "0.8.17",
