@@ -32,7 +32,7 @@ async function run() {
     process.env.CONTRACT_ADDRESS,
     [
       'function count() public',
-      'function getCounter() public view returns (uint32)',
+      'function getCounter() public view returns (uint)',
     ],
     new ethers.providers.Web3Provider(getEth())
   );
@@ -48,7 +48,7 @@ async function run() {
   button.innerText = 'increment';
   button.onclick = async function() {
     await counter.count();
-    // setCounter();
+    setCounter();
   }
 
   document.body.appendChild(el);
