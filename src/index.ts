@@ -34,7 +34,7 @@ async function run() {
       'function count() public',
       'function getCounter() public view returns (uint)',
     ],
-    new ethers.providers.Web3Provider(getEth())
+    new ethers.providers.Web3Provider(getEth()).getSigner()
   );
 
   const el = document.createElement('div');
@@ -46,10 +46,11 @@ async function run() {
 
   const button = document.createElement('button');
   button.innerText = 'increment';
-  button.onclick = async function() {
-    await counter.count();
+  button.onclick = async function () {
+    const tx = await counter.count();
+    await tx.wait();
     setCounter();
-  }
+  };
 
   document.body.appendChild(el);
   document.body.appendChild(button);
