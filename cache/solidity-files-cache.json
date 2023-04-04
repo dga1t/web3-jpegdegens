@@ -107,6 +107,41 @@
       "artifacts": [
         "console"
       ]
+    },
+    "/run/media/dp/SPACE/coding/projects/web3/jpegdegens/contracts/TestGas.sol": {
+      "lastModificationDate": 1680626991351,
+      "contentHash": "3c4a960079a439efd5583859c66f1885",
+      "sourceName": "contracts/TestGas.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "TestGas"
+      ]
     }
   }
 }
