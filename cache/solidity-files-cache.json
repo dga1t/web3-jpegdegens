@@ -142,6 +142,41 @@
       "artifacts": [
         "TestGas"
       ]
+    },
+    "/run/media/dp/SPACE/coding/projects/web3/jpegdegens/contracts/Hero.sol": {
+      "lastModificationDate": 1682094636847,
+      "contentHash": "069a31d4197a09ab68c147634af4d3c9",
+      "sourceName": "contracts/Hero.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Hero"
+      ]
     }
   }
 }
