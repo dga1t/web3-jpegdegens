@@ -5,7 +5,7 @@ contract Hero {
 
   mapping (address => uint[]) addressToHeroes;
 
-  function generateRandom() public view returns (uint) {
+  function generateRandom() public virtual view returns (uint) {
     return uint(keccak256(abi.encodePacked(block.difficulty, block.timestamp)));
   }
 
@@ -14,26 +14,26 @@ contract Hero {
   }
 
   // str is the first 5 bits (after 2 bits for character class)
-  function getStrength(uint hero) public pure returns (uint) {
-    return (hero >> 2) & 0x1F;  
+  function getStrength(uint hero) public pure returns (uint32) {
+    return uint32((hero >> 2) & 0x1F);  
   }
 
   // health is the next 5 bits after str and class
-  function getHealth(uint hero) public pure returns (uint) {
-    return (hero >> 7) & 0x1F;  
+  function getHealth(uint hero) public pure returns (uint32) {
+    return uint32((hero >> 7) & 0x1F);  
   }
 
   // u get the idea..
-  function getDex(uint hero) public pure returns (uint) {
-    return (hero >> 12) & 0x1F;  
+  function getDex(uint hero) public pure returns (uint32) {
+    return uint32((hero >> 12) & 0x1F);  
   }
 
-  function getIntellect(uint hero) public pure returns (uint) {
-    return (hero >> 17) & 0x1F;  
+  function getIntellect(uint hero) public pure returns (uint32) {
+    return uint32((hero >> 17) & 0x1F);  
   }
 
-  function getMagic(uint hero) public pure returns (uint) {
-    return (hero >> 22) & 0x1F;  
+  function getMagic(uint hero) public pure returns (uint32) {
+    return uint32((hero >> 22) & 0x1F);  
   }
 
   function createHero(Class class) public payable {
